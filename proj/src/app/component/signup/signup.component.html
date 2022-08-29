@@ -1,0 +1,176 @@
+<app-banner title="Ajouter un employé" ></app-banner>
+<!-- <section class="regervation_part section_padding"> -->
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+ 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="regervation_part_iner">
+                  <button class="btn btn-danger"  style="width: 178px;"  (click)="retour()">retour</button>
+                  <br/>
+                  <br/>
+                
+
+                  <form [formGroup]="signupForm">
+                    <div class="form-row">
+                        
+                        
+                        <div class="form-group col-md-8">
+                          
+                          <label for="nom"><strong>Nom:</strong></label>
+                            <input type="text" class="form-control" id="fname" placeholder="Votre Nom *" formControlName="firstName" required>
+                            <div
+
+                            *ngIf="
+                              signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">
+                            <!-- pour detecter le type de l'erreur bl .errors ml validator mtaa ts-->
+                            <div *ngIf="signupForm.controls['firstName'].errors?.['required']"  style="color: red;">
+                              Votre nom est obligatoire
+                            </div>
+                            <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']" style="color: red;">
+                              Minimum 3 caractéres *
+                            </div>
+                                              </div>
+                        </div>
+                       
+                        <div class="form-group col-md-8">
+                          <label for="prenom"><strong>Prénom:</strong></label>
+                            <input type="text" class="form-control" id="lname" placeholder="Votre Prénom *" formControlName="lastName" required>
+                            <div
+                            *ngIf="
+                              signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">
+                            <!-- pour detecter le type de l'erreur bl .errors ml validator mtaa ts-->
+                            <div *ngIf="signupForm.controls['lastName'].errors?.['required']"  style="color: red;">
+                              Prénom est obligatoire
+                            </div>
+                            <div *ngIf="signupForm.controls['lastName'].errors?.['minlength']" style="color: red;">
+                           Min 3 caractéres
+                            </div>
+                          </div>
+    
+                        </div>
+                       
+                       
+                        <!-- <div class="form-group col-md-8">
+                            <input type="text" class="form-control" id="phone" placeholder="Phone number *" formControlName="mobile" required>
+                            <div *ngIf="
+                            signupForm.controls['mobile'].invalid && (signupForm.controls['mobile'].dirty || signupForm.controls['mobile'].touched)">
+                            <div *ngIf="signupForm.controls['mobile'].errors?.['minlength']" style="color: red;">
+                                Mobile should be 8 digit
+                              </div>
+                              <div *ngIf="signupForm.controls['mobile'].errors?.['maxlength']" style="color: red;">
+                                Mobile should be 8 digit
+                              </div>
+    
+                                <div *ngIf="signupForm.controls['mobile'].errors?.['required']"  style="color: red;">
+                                    Mobile Number is required
+                                  </div>
+    
+                                  <div *ngIf="signupForm.controls['mobile'].errors?.['pattern']" style="color: red;">
+                                    Format is invalid
+                                  </div>
+                             </div> 
+                        </div> -->
+
+                       
+
+
+                        <div class="form-group col-md-8">
+                          <label for="email"><strong>Email:</strong></label>
+                            <input type="email" class="form-control" id="email"
+                                placeholder="Votre adresse mail *" formControlName="email" required>
+
+                                <div
+                                *ngIf="
+                                  signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+                                <!-- pour detecter le type de l'erreur bl .errors ml validator mtaa ts-->
+                                <div *ngIf="signupForm.controls['email'].errors?.['required']"  style="color: red;">
+                                  Votre emeil est obligatoire
+                                </div>
+                                <div *ngIf="signupForm.controls['email'].errors?.['email']" style="color: red;">
+                                  Forme invalide
+                                </div>
+                              </div>
+                        </div>
+                      
+                        <div class="form-group col-md-8">
+                          <label for="password"><strong>Mot de passe:</strong></label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Votre mot de passe *" formControlName="password" required>
+                          
+                        <div
+                        *ngIf="
+                          signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+                        <!-- pour detecter le type de l'erreur bl .errors ml validator mtaa ts-->
+                        <div *ngIf="signupForm.controls['password'].errors?.['required']"  style="color: red;">
+                          Votre mot de passe est obligatoire
+                        </div>
+                        <div *ngIf="signupForm.controls['password'].errors?.['pattern']" style="color: red;">
+                          Forme invalide
+                        </div>
+                        <div *ngIf="signupForm.controls['password'].errors?.['maxlength']" style="color: red;">
+                          Max 12 caractéres
+                        </div>
+                        <div *ngIf="signupForm.controls['password'].errors?.['minlength']" style="color: red;">
+                          Min 8 caractéres
+                        </div>
+                      </div>
+                      <br/>
+                      <label for="port"><strong>Port:</strong></label>
+                      <div><p>Selectionner votre port</p>
+                          <select formControlName="port">
+                          <option [ngValue]="null" disabled>Select port</option>
+                            <option *ngFor="let p of ports" [ngValue]="p" >{{p.name}}</option>
+                          </select>
+                      </div>
+                    
+        
+                      <div *ngIf="signupForm.controls['port'].touched"  >
+                        <div *ngIf="signupForm.controls['port'].errors?.['required']"  style="color: red;">
+                            Choisissez votre Port
+                          </div>
+                      </div>
+                      <br/>
+      
+
+                      <div>
+                          <input 
+                          class="btn btn-dark"
+                          type="submit"
+                          [disabled]="signupForm.invalid"
+                          (click)="signup()"
+                          value="Ajouter "
+                          style="text-decoration-color:rgb(3, 3, 33) ;"
+                        />
+                      </div>
+<br/>
+                      <!-- <button class="btn btn-danger"  style="width: 178px;"  (click)="retour()">retour</button> -->
+                    
+                    </div>
+                    </div>
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- </section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<br/>
+<app-searchuser (searchChanged)="onSearchTextEntered($event)"></app-searchuser>
+<br/>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>NOM</th>
+        <th>PRENOM</th>
+        <th>EMAIL</th>
+        <th>ACTION</th>
+    </tr>
+  <ng-container  *ngFor="let p of users">
+    <tr *ngIf="searchText=== '' || p.firstName.toLowerCase().includes(searchText)|| p.lastName.toLowerCase().includes(searchText)|| p.email.toLowerCase().includes(searchText) ">
+        <td>{{p.id}}</td>
+        <td>{{p.firstName}}</td>
+        <td>{{p.lastName}}</td>
+        <td>{{p.email}}</td>
+        <button class="btn btn-info" (click)="goToDisplay(p.id)">Afficher</button>
+        <button class="btn btn-warning" (click)="goToEdit(p.id)">Modifier</button>
+        <button class="btn btn-danger"(click)="Deleteuser(p.id)">Supprimer</button>
+  
+    </tr>
+</ng-container>
+
+</table>

@@ -1,0 +1,22 @@
+<app-banner title="Tout Les Ports"></app-banner>
+<br/>
+<br/>
+<br/>
+                      <button class="btn btn-danger"  style="width: 180px;" (click)="retour()">retour</button>
+<!-- <div class="row">
+    <div class="col-xl-5">
+        <div >
+            
+            <h2  style="text-align: center; "><strong> <u><font color="rgb(3, 3, 33)"> Tout Les Ports</font></u></strong></h2>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div *ngFor="let p of ports" class="col-sm-4 col-lg-4">
+    <!-- :les deux crochets[] :pour passer une var de la partie ts a partie html -->
+    <hr/>
+    <app-port [X]="p" ></app-port>
+    <hr/>
+</div>
+
+</div>

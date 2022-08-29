@@ -1,0 +1,55 @@
+<app-banner title="Tout Les Employés de ce port"></app-banner>
+<br />
+<br />
+<br/>
+<div class="row">
+  <div class=" col-lg-1">
+
+  </div>
+  <div class=" col-lg-2">
+    <button class="btn btn-danger"  style="width: 150px;" (click)="retour()">retour</button>
+
+  </div>
+  
+<!-- <div class="row">
+  <div class="col-xl-12">
+    <div>
+      <h2 style="text-align: center">
+        <strong>
+          <u
+            ><font color="rgb(3, 3, 33)"> Tout Les Employés de ce port</font></u
+          ></strong
+        >
+      </h2>
+    </div>
+  </div>
+</div> -->
+<div class="row">
+  <!-- <div  class="col-sm-4 col-lg-1"></div> -->
+  <div  class="col-sm-4 col-lg-5" *ngFor="let user of users">
+    <!-- :les deux crochets[] :pour passer une var de la partie ts a partie html -->
+<hr/>
+
+ <p><u style="text-decoration-line: underline">ID:</u> {{ user.id }}</p>
+    <p>
+      <u style="text-decoration-line: underline">Nom:</u> {{ user.firstName }}
+    </p>
+    <p>
+      <u style="text-decoration-line: underline">Prénom:</u> {{ user.lastName }}
+    </p>
+    <p>
+      <u style="text-decoration-line: underline">Email:</u> {{ user.email }}
+    </p>
+    <hr/>
+    <br/>
+    <br/>
+
+    <!-- <div class="social_icon">
+            <a href="#"> <i class="ti-facebook"></i> </a>
+            <a href="#"> <i class="ti-twitter-alt"></i> </a>
+            <a href="#"> <i class="ti-instagram"></i> </a>
+            <a href="#"> <i class="ti-skype"></i> </a>
+        </div> -->
+  </div>
+</div>
+

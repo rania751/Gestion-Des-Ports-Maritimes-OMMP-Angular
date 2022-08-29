@@ -1,0 +1,43 @@
+{
+  "ports": [
+    {
+      "id": 1,
+      "name": "United States"
+    },
+    {
+      "id": 2,
+      "name": "Australia"
+    },
+    {
+      "id": 3,
+      "name": "Canada"
+    },
+    {
+      "id": 4,
+      "name": "Brazil"
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "firstName": "Aahmad",
+      "lastName": "zcz",
+      "email": "z@dz.com",
+      "port": "eevfeee"
+    },
+    {
+      "id": 3,
+      "firstName": "Aehmad",
+      "lastName": "zfcz",
+      "email": "z@sz.com",
+      "port": "eeeee"
+    },
+    {
+      "id": 4,
+      "firstName": "Ahmadd",
+      "lastName": "zzf",
+      "email": "z@sz.com",
+      "port": "eeeee"
+    }
+  ]
+}

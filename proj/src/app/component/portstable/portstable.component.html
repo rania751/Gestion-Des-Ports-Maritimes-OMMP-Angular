@@ -1,0 +1,23 @@
+<br/>
+<app-searchport (searchChanged)="onSearchTextEntered($event)"></app-searchport>
+<br/>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>ACTION</th>
+   
+    </tr>
+    <ng-container  *ngFor="let p of ports">
+        <tr *ngIf="searchText=== '' || p.name.toLowerCase().includes(searchText)">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+
+        <button class="btn btn-info" (click)="goToDisplay(p.id)">Afficher</button>
+        <button class="btn btn-warning" (click)="goToEdit(p.id)">Modifier</button>
+        <button class="btn btn-danger"(click)="DeletePort(p.id)">Supprimer</button>
+
+    </tr>
+    </ng-container>
+
+</table>
